@@ -60,5 +60,22 @@ public class VectorTest{
         print("\(vec5)\n+")
         print("\(vec6)\n=")
         print("\(vec5.add(vec6))\n")
+        
+        /*
+        var vec1: Vector<Int> = Vector<Int>(size: 2)
+        vec1[0] = 1
+        vec1[1] = 2
+        var vec2: Vector<Int> = Vector<Int>(size: 2)
+        vec2[0] = 3
+        vec2[1] = 6
+        
+        print("\(vec1 + vec2)\n")
+        
+        var vec3: Vector<Int> = Vector<Int>(size: 4)
+        vec3[0] = 3
+        vec3[1] = 6
+        vec3[2] = 9
+        vec3[3] = 12
+ */
     }
 }

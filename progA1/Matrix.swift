@@ -108,22 +108,6 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return copy
     }
     
-    /*
-    func equals(lhs: Matrix<T>, rhs: Matrix<T>) -> Bool {
-        if(lhs.rows != rhs.rows || lhs.columns != rhs.columns){
-            return false
-        }
-        for r in 0...(lhs.rows-1){
-            for c in 0...(lhs.columns-1){
-                if(lhs[r, c] == rhs[r, c]){
-                    return false
-                }
-            }
-        }
-        return true
-    }
-    */
-    
     public func row(index: Int) -> Vector<T>{
         let vec: Vector<T> = Vector<T>(size: self.columns)
         for i in 0...(vec.size-1){
