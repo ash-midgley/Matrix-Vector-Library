@@ -14,7 +14,7 @@ var mTest: MatrixTest = MatrixTest()
 mTest.runTests()
 */
 //VECTOR TESTING
-
+/*
 var mat1 = Matrix<Int>(rows: 1, columns: 3)
 mat1[0, 0] = 1
 mat1[0, 1] = 2
@@ -42,3 +42,17 @@ vec3[3] = 12
 
 var mat2: Matrix<Int> = vec3.matrixview
 print("\(mat2.transpose)\n")
+ 
+
+*/
+
+var F = Matrix<Fraction>(rows: 1, columns: 2)
+F[0,0] = Fraction(num: 3, den: 4)
+F[0,1] = Fraction(num: -1, den: 2)
+
+var C = Matrix<Complex>(rows: 1, columns: 2)
+C[0,0] = Complex(real: 5, imag: 2)
+C[0,1] = Complex(real: -1, imag: 2)
+
+print("\(F)")
+print("\(C)")
