@@ -26,21 +26,9 @@ public class MatrixTest{
         t8()
         t9()
         t10()
-        
-        /*
-        var mat1 = Matrix<Int>(rows: 1, columns: 3)
-        mat1[0, 0] = 1
-        mat1[0, 1] = 2
-        mat1[0, 2] = 3
-        
-        print("\(mat1)\n\(mat1.vectorview)\n")
-        
-        print("\(mat1.row(0))\n")
-        print("\(mat1.column(1))\n")
-        
-        var mat2: Matrix<Int> = vec3.matrixview
-        print("\(mat2.transpose)\n")
- */
+        t11()
+        t12()
+        t13()
     }
     
     //Test 1: setting and printing Matrix with different type values
@@ -487,6 +475,103 @@ public class MatrixTest{
                     i += 1
                 }
             }
+        }
+        if(!failFlag){
+            print("PASSED")
+        }
+        failFlag = false
+        print()
+    }
+    
+    //Test 11 - Matrix to Vector view
+    func t11(){
+        print("TEST 11 - Matrix vectorview")
+        let mat1: Matrix<Int> = Matrix<Int>(rows: 1, columns: 3)
+        print("Case 1: ", terminator: "")
+        mat1[0, 0] = 1
+        mat1[0, 1] = 2
+        mat1[0, 2] = 3
+         
+        let mat2: Matrix<Int> = mat1.vectorview
+        let result: [Int] = [1, 2, 3]
+
+        var i: Int = 0
+        for r in 0...(mat2.rows-1){
+            if(!failFlag){
+                for c in 0...(mat2.columns-1){
+                    if(mat2[r,c] != result[i]){
+                        print("FAILED")
+                        failFlag = true
+                    }
+                    i += 1
+                }
+            }
+        }
+        if(!failFlag){
+            print("PASSED")
+        }
+        failFlag = false
+        print()
+    }
+    
+    //Test 12 - Access Matrix rows
+    func t12(){
+        print("TEST 12 - Matrix row access")
+        let mat1: Matrix<Int> = Matrix<Int>(rows: 3, columns: 3)
+        print("Case 1: ", terminator: "")
+        mat1[0, 0] = 1
+        mat1[0, 1] = 2
+        mat1[0, 2] = 3
+        mat1[1, 0] = 4
+        mat1[1, 1] = 5
+        mat1[1, 2] = 6
+        mat1[2, 0] = 7
+        mat1[2, 1] = 8
+        mat1[2, 2] = 9
+        
+        let row: Vector<Int> = mat1.row(2)
+        let result: [Int] = [7, 8, 9]
+        
+        var i: Int = 0
+        for c in 0...(row.size-1){
+            if(row[c] != result[i]){
+                print("FAILED")
+                failFlag = true
+            }
+            i += 1
+        }
+        if(!failFlag){
+            print("PASSED")
+        }
+        failFlag = false
+        print()
+    }
+    
+    //Test 13 - Access Matrix columns
+    func t13(){
+        print("TEST 13 - Matrix column access")
+        let mat1: Matrix<Int> = Matrix<Int>(rows: 3, columns: 3)
+        print("Case 1: ", terminator: "")
+        mat1[0, 0] = 1
+        mat1[0, 1] = 2
+        mat1[0, 2] = 3
+        mat1[1, 0] = 4
+        mat1[1, 1] = 5
+        mat1[1, 2] = 6
+        mat1[2, 0] = 7
+        mat1[2, 1] = 8
+        mat1[2, 2] = 9
+        
+        let row: Vector<Int> = mat1.column(2)
+        let result: [Int] = [3, 6, 9]
+        
+        var i: Int = 0
+        for c in 0...(row.size-1){
+            if(row[c] != result[i]){
+                print("FAILED")
+                failFlag = true
+            }
+            i += 1
         }
         if(!failFlag){
             print("PASSED")
