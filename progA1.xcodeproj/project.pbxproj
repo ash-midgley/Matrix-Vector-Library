@@ -14,6 +14,7 @@
 		979969F41D78095E003C9F57 /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979969F11D78095E003C9F57 /* Interface.swift */; };
 		97BBB8191D713A8300686400 /* MatrixTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BBB8181D713A8300686400 /* MatrixTest.swift */; };
 		97BBB81B1D713B1700686400 /* VectorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BBB81A1D713B1700686400 /* VectorTest.swift */; };
+		97C133F01D7ADE370026DBD6 /* TestMatrixVector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97C133EF1D7ADE370026DBD6 /* TestMatrixVector.swift */; };
 		97CA191B1D65B078002E717E /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CA191A1D65B078002E717E /* Matrix.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		979969F11D78095E003C9F57 /* Interface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		97BBB8181D713A8300686400 /* MatrixTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixTest.swift; sourceTree = "<group>"; };
 		97BBB81A1D713B1700686400 /* VectorTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VectorTest.swift; sourceTree = "<group>"; };
+		97C133EF1D7ADE370026DBD6 /* TestMatrixVector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestMatrixVector.swift; sourceTree = "<group>"; };
 		97CA191A1D65B078002E717E /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +79,7 @@
 				979969F01D78095E003C9F57 /* Fraction.swift */,
 				979969F11D78095E003C9F57 /* Interface.swift */,
 				97BBB8181D713A8300686400 /* MatrixTest.swift */,
+				97C133EF1D7ADE370026DBD6 /* TestMatrixVector.swift */,
 				9778BF831D6EFF2400E3F4EC /* Vector.swift */,
 				97CA191A1D65B078002E717E /* Matrix.swift */,
 			);
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C133F01D7ADE370026DBD6 /* TestMatrixVector.swift in Sources */,
 				97CA191B1D65B078002E717E /* Matrix.swift in Sources */,
 				9786401A1D62953E00B9CBBF /* main.swift in Sources */,
 				9778BF841D6EFF2400E3F4EC /* Vector.swift in Sources */,

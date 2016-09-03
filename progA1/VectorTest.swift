@@ -10,10 +10,19 @@ import Foundation
 
 public class VectorTest{
     
-    init(){}
+    var tests: [[Bool]] = [[Bool]]()
+    
+    var results: [[Bool]]{
+        return self.tests
+    }
+    
+    init(){
+        runTests()
+    }
     
     func runTests(){
-        print("***** Vector Testing *****\n")
+        tests.append(t1())
+        /*
         let vec1 = Vector<Int>(size: 5)
         print("Vector 1:\n\(vec1)\n")
         vec1[0]=1
@@ -60,8 +69,7 @@ public class VectorTest{
         print("\(vec5)\n+")
         print("\(vec6)\n=")
         print("\(vec5.add(vec6))\n")
-        
-        /*
+ 
         var vec1: Vector<Int> = Vector<Int>(size: 2)
         vec1[0] = 1
         vec1[1] = 2
@@ -77,5 +85,46 @@ public class VectorTest{
         vec3[2] = 9
         vec3[3] = 12
  */
+    }
+    
+    //Test 1: setting and printing Matrix with different type values
+    func t1() -> [Bool]{
+        var cases: [Bool] = [Bool]()
+        
+        //Int
+        
+        
+        //Double
+        
+        
+        //Float
+        
+        
+        //Fraction
+        
+        
+        //Complex
+        
+        
+        return cases
+    }
+    
+    //Test 2: Copying a Matrix
+    
+    //Test 3: Dot product of 2 Vectors
+    
+    func testCase(lhs: Vector<Int>, rhs: [Int]) -> Bool{
+        var i: Int = 0
+        if(lhs.size == rhs.count){
+            for c in 0...(lhs.size-1){
+                if(lhs[c] != rhs[i]){
+                    return false
+                }
+                i += 1
+            }
+        }else{
+            return false
+        }
+        return true
     }
 }
