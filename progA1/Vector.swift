@@ -65,7 +65,7 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
         }
         return copy
     }
-
+    
     // Vector and Vector operations
     func multiply(rhs: Vector<T>) -> T{
         var val: T = T.init()
@@ -76,53 +76,57 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
     }
     
     func add(rhs: Vector<T>) -> Vector<T>{
-        let result: Vector<T> = Vector<T>(size: 1)
-        var val: T = T.init()
+        let result: Vector = Vector(size: self.size)
         for i in 0...(self.size-1){
+            var val: T = T.init()
             val = val + (self[i] + rhs[i])
+            result[i] = val
         }
-        result[0] = val
+        
         return result
     }
     
     func subtract(rhs: Vector<T>) -> Vector<T>{
-        let result: Vector<T> = Vector<T>(size: 1)
-        var val: T = T.init()
+        let result: Vector = Vector(size: self.size)
         for i in 0...(self.size-1){
+            var val: T = T.init()
             val = val + (self[i] - rhs[i])
+            result[i] = val
         }
-        result[0] = val
+        
         return result
     }
     
-    // Matrix and scalar operations
+    // Vector and scalar operations
     override func multiply(rhs: T) -> Vector<T>{
         let result: Vector<T> = Vector<T>(size: 1)
         var val: T = T.init()
         for i in 0...(self.size-1){
             val = val + (self[i] * rhs)
         }
-        result[0, 0] = val
+        result[0] = val
         return result
     }
     
     override func add(rhs: T) -> Vector<T>{
-        let result: Vector = Vector(size: 1)
-        var val: T = T.init()
+        let result: Vector = Vector(size: self.size)
         for i in 0...(self.size-1){
+            var val: T = T.init()
             val = val + (self[i] + rhs)
+            result[i] = val
         }
-        result[0, 0] = val
+        
         return result
     }
     
     override func subtract(rhs: T) -> Vector<T>{
-        let result: Vector = Vector(size: 1)
-        var val: T = T.init()
+        let result: Vector = Vector(size: self.size)
         for i in 0...(self.size-1){
+            var val: T = T.init()
             val = val + (self[i] - rhs)
+            result[i] = val
         }
-        result[0, 0] = val
+        
         return result
     }
     
@@ -132,7 +136,7 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
         for i in 0...(self.size-1){
             val = val + (self[i] / rhs)
         }
-        result[0, 0] = val
+        result[0] = val
         return result
     }
 }

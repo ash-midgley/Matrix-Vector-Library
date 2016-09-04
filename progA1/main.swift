@@ -12,11 +12,11 @@ var tests: TestMatrixVector = TestMatrixVector()
 
 //MATRIX TESTING
 
-print("***** Matrix Testing **ssssssssss***\n")
+print("***** Matrix Testing *****\n")
 
-var matTests: Int = 0
-var matPasses: Int = 0
-var matFails: Int = 0
+var matTests: Double = 0
+var matPasses: Double = 0
+var matFails: Double = 0
 
 let mTNames: [String] = ["[Type values]", "[Transpose]", "[Copy]", "[Matrix * Matrix]", "[Matrix + Matrix]", "[Matrix - Matrix]", "[Matrix + Scalar]", "[Matrix - Scalar]", "[Matrix * Scalar]", "[Matrix / Scalar]", "[Vectorview]", "[Row access]", "[Column access]"]
 let mTResults: [[Bool]] = tests.matrixTests
@@ -38,22 +38,22 @@ for t in 0...(mTResults.count-1){
     print()
 }
 
-print("Tests ran on Matrix class: \(matTests)")
-print("Passes: \(matPasses), Fails: \(matFails).\n")
+print("Tests ran on Matrix class: \(Int(matTests))")
+print("Passes: \(Int(matPasses)), Fails: \(Int(matFails)).\n")
 
 //VECTOR TESTING
 
 print("***** Vector Testing *****\n")
 
-var vecTests: Int = 0
-var vecPasses: Int = 0
-var vecFails: Int = 0
+var vecTests: Double = 0
+var vecPasses: Double = 0
+var vecFails: Double = 0
 
 var vTest: VectorTest = VectorTest()
 
-let vTNames: [String] = ["TEST 1 - Type values", "TEST 2 - Copying a Vector"]
+let vTNames: [String] = ["[Type values]", "[Subscript]", "[Copy]", "[Dot Product]", "[Vector * Vector]", "[Vector + Vector]", "[Vector - Vector]", "[Vector * Scalar]", "[Vector + Scalar]", "[Vector - Scalar]", "[Vector / Scalar]", "[Matrixview]", "[Matrix Row]", "[Matrix Column]"]
 let vTResults: [[Bool]] = tests.vectorTests
-/*
+
 for t in 0...(vTResults.count-1){
     print("\(vTNames[t])")
     for c in 0...(vTResults[t].count-1){
@@ -70,7 +70,17 @@ for t in 0...(vTResults.count-1){
     }
     print()
 }
-*/
-print("Tests ran on Vector class: \(vecTests)")
-print("Passes: \(vecPasses), Fails: \(vecFails).\n")
+
+print("Tests ran on Vector class: \(Int(vecTests))")
+print("Passes: \(Int(vecPasses)), Fails: \(Int(vecFails)).\n")
+
+//Tests COMPLETE
+
+let passes: Double = matPasses + vecPasses
+let fails: Double =  matFails+vecFails
+let ttests: Double = matTests+vecTests
+let passPercent: Double = ((passes-fails)/ttests)*100
+
+print("Total tests run: \(Int(matTests+vecTests))")
+print("\(String(format: "%.1f", passPercent))% of tests PASSED")
 
