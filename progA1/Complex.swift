@@ -25,7 +25,7 @@ final class Complex : CustomStringConvertible {
      - returns: Float Magnitude of the complex number
      */
     var magnitude: Float {
-        return sqrt(pow(self.real, 2)+pow(self.imag, 2))
+        return pow(self.real, 2)+pow(self.imag, 2)
     }
     
     /**

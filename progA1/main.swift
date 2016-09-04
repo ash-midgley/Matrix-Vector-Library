@@ -18,7 +18,7 @@ var matTests: Double = 0
 var matPasses: Double = 0
 var matFails: Double = 0
 
-let mTNames: [String] = ["[Type values]", "[Transpose]", "[Copy]", "[Matrix * Matrix]", "[Matrix + Matrix]", "[Matrix - Matrix]", "[Matrix + Scalar]", "[Matrix - Scalar]", "[Matrix * Scalar]", "[Matrix / Scalar]", "[Vectorview]", "[Row access]", "[Column access]"]
+let mTNames: [String] = ["[Type values]", "[Subscript]", "[Transpose]", "[Copy]", "[Matrix * Matrix]", "[Matrix + Matrix]", "[Matrix - Matrix]", "[Matrix + Scalar]", "[Matrix - Scalar]", "[Matrix * Scalar]", "[Matrix / Scalar]", "[Vectorview]", "[Row access]", "[Column access]"]
 let mTResults: [[Bool]] = tests.matrixTests
 
 for t in 0...(mTResults.count-1){
@@ -75,6 +75,8 @@ print("Tests ran on Vector class: \(Int(vecTests))")
 print("Passes: \(Int(vecPasses)), Fails: \(Int(vecFails)).\n")
 
 //Tests COMPLETE
+
+print("***** Testing COMPLETE *****\n")
 
 let passes: Double = matPasses + vecPasses
 let fails: Double =  matFails+vecFails

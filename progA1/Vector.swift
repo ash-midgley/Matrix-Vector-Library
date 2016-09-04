@@ -10,11 +10,9 @@ import Foundation
 
 public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
     
-    let vecSize: Int
-    
     public var size: Int {
         get{
-            return vecSize
+            return (super.rows*super.columns)
         }
     }
     
@@ -33,7 +31,6 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
     }
     
     init(size: Int){
-        vecSize = size
         super.init(rows: 1, columns: size)
     }
     
@@ -58,12 +55,7 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
     
     // Returns a new object instance that is a copy of the current vector
     public override func copy() -> Vector<T>{
-        let copy = Vector<T>(size: vecSize)
-        
-        for i in 0...(vecSize-1){
-            copy[i] = self[i]
-        }
-        return copy
+        return super.copy().vectorview
     }
     
     // Vector and Vector operations
@@ -76,68 +68,28 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
     }
     
     func add(rhs: Vector<T>) -> Vector<T>{
-        let result: Vector = Vector(size: self.size)
-        for i in 0...(self.size-1){
-            var val: T = T.init()
-            val = val + (self[i] + rhs[i])
-            result[i] = val
-        }
-        
-        return result
+        return super.add(rhs).vectorview
     }
     
     func subtract(rhs: Vector<T>) -> Vector<T>{
-        let result: Vector = Vector(size: self.size)
-        for i in 0...(self.size-1){
-            var val: T = T.init()
-            val = val + (self[i] - rhs[i])
-            result[i] = val
-        }
-        
-        return result
+        return super.subtract(rhs).vectorview
     }
     
     // Vector and scalar operations
     override func multiply(rhs: T) -> Vector<T>{
-        let result: Vector<T> = Vector<T>(size: 1)
-        var val: T = T.init()
-        for i in 0...(self.size-1){
-            val = val + (self[i] * rhs)
-        }
-        result[0] = val
-        return result
+        return super.multiply(rhs).vectorview
     }
     
     override func add(rhs: T) -> Vector<T>{
-        let result: Vector = Vector(size: self.size)
-        for i in 0...(self.size-1){
-            var val: T = T.init()
-            val = val + (self[i] + rhs)
-            result[i] = val
-        }
-        
-        return result
+        return super.add(rhs).vectorview
     }
     
     override func subtract(rhs: T) -> Vector<T>{
-        let result: Vector = Vector(size: self.size)
-        for i in 0...(self.size-1){
-            var val: T = T.init()
-            val = val + (self[i] - rhs)
-            result[i] = val
-        }
-        
-        return result
+        return super.subtract(rhs).vectorview
     }
     
     override func divide(rhs: T) -> Vector<T>{
-        let result: Vector = Vector(size: 1)
-        var val: T = T.init()
-        for i in 0...(self.size-1){
-            val = val + (self[i] / rhs)
-        }
-        result[0] = val
-        return result
+        return super.divide(rhs).vectorview
     }
 }
 

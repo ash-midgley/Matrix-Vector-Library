@@ -16,19 +16,16 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     
     public var description: String{
         var s: String = ""
-        let rF: Int = rowCount-1
-        let cF: Int = columnCount-1
-        
-        for r in 0...rF{
+        for r in 0...(rows-1){
             s += "["
-            for c in 0...cF{
-                if(c != cF){
+            for c in 0...(columns-1){
+                if(c != (columns-1)){
                     s += "\(mat[r][c]), "
                 }else{
                     s += "\(mat[r][c])"
                 }
             }
-            if(r != rF){
+            if(r != (rows-1)){
                 s += "]\n"
             }else{
                 s += "]"
@@ -55,11 +52,8 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     public var transpose: Matrix<T> {
         get{
             let t = Matrix<T>(rows: columnCount, columns: rowCount)
-            
-            let rF: Int = rowCount-1
-            let cF: Int = columnCount-1
-            for r in 0...rF{
-                for c in 0...cF{
+            for r in 0...(rowCount-1){
+                for c in 0...(columnCount-1){
                     t[c, r] = mat[r][c]
                 }
             }
@@ -80,11 +74,8 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     
     public var matStringArray: [String] {
         var result: [String] = [String]()
-        let rF: Int = rowCount-1
-        let cF: Int = columnCount-1
-        
-        for r in 0...rF{
-            for c in 0...cF{
+        for r in 0...(rowCount-1){
+            for c in 0...(columnCount-1){
                 result.append("\(self[r,c])")
             }
         }
@@ -110,11 +101,8 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     // Returns a new object that is a copy of the current matrix
     public func copy() -> Matrix<T>{
         let copy = Matrix(rows: rowCount, columns: columnCount)
-        
-        let rF: Int = rowCount-1
-        let cF: Int = columnCount-1
-        for r in 0...rF{
-            for c in 0...cF{
+        for r in 0...(rows-1){
+            for c in 0...(columns-1){
                 copy[r, c] = mat[r][c]
             }
         }
@@ -132,8 +120,8 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     public func column(index: Int) -> Vector<T>{
         let vec: Vector<T> = Vector<T>(size: self.rows)
         var i: Int = 0
-        for r in 0...(self.rows-1){
-            for c in 0...(self.columns-1){
+        for r in 0...(rows-1){
+            for c in 0...(columns-1){
                 if(c == index){
                     vec[i] = mat[r][c]
                     i += 1
@@ -164,6 +152,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     func add(rhs: Matrix<T>) -> Matrix<T>{
         assert(self.rows == rhs.rows && self.columns == rhs.columns, "Matrix A must be of same size as Matrix B")
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
+        
         for r in 0...(result.rows-1){
             for c in 0...(result.columns-1){
                 let val: T = mat[r][c] + rhs[r, c]
@@ -176,6 +165,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     func subtract(rhs: Matrix<T>) -> Matrix<T>{
         assert(self.rows == rhs.rows && self.columns == rhs.columns, "Matrix A must be of same size as Matrix B")
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
+        
         for r in 0...(result.rows-1){
             for c in 0...(result.columns-1){
                 let val: T = mat[r][c] - rhs[r, c]
@@ -188,6 +178,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     // Matrix and scalar operations
     func multiply(rhs: T) -> Matrix<T>{
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
+        
         for r in 0...(result.rows-1){
             for c in 0...(result.columns-1){
                 let val: T = mat[r][c] * rhs
@@ -199,6 +190,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     
     func add(rhs: T) -> Matrix<T>{
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
+        
         for r in 0...(result.rows-1){
             for c in 0...(result.columns-1){
                 let val: T = mat[r][c] + rhs
@@ -210,6 +202,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     
     func subtract(rhs: T) -> Matrix<T>{
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
+        
         for r in 0...(result.rows-1){
             for c in 0...(result.columns-1){
                 let val: T = mat[r][c] - rhs
@@ -221,6 +214,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     
     func divide(rhs: T) -> Matrix<T>{
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
+        
         for r in 0...(result.rows-1){
             for c in 0...(result.columns-1){
                 let val: T = mat[r][c] / rhs

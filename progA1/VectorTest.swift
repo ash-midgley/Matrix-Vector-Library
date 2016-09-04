@@ -417,7 +417,7 @@ public class VectorTest{
         vec5[1]=2
         vec5[2]=3
         let vec7 = vec5*3
-        let result: [String] = ["18"]
+        let result: [String] = ["3" ,"6", "9"]
         cases.append(testCase(vec7.vecStringArray, rhs: result))
         
         return cases
@@ -462,7 +462,7 @@ public class VectorTest{
         vec5[1]=18
         vec5[2]=30
         let vec7 = vec5/3
-        let result: [String] = ["18"]
+        let result: [String] = ["2", "6", "10"]
         cases.append(testCase(vec7.vecStringArray, rhs: result))
         
         return cases
