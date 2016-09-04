@@ -73,15 +73,6 @@ public class VectorTest{
         let resultD: [String] = ["1.0", "2.45", "3.98", "4.25135324513"]
         cases.append(testCase(vec2.vecStringArray, rhs: resultD))
         
-        //Float
-        let vec3: Vector<Float> = Vector<Float>(size: 4)
-        vec3[0] = 1.0
-        vec3[1] = 2.45
-        vec3[2] = 3.98
-        vec3[3] = 4.25135324513
-        let resultF: [String] = ["1.0", "2.45", "3.98", "4.25135"]
-        cases.append(testCase(vec3.vecStringArray, rhs: resultF))
-        
         //Fraction
         let vec4: Vector<Fraction> = Vector<Fraction>(size: 4)
         let f1: Fraction = Fraction(num: 1, den: 2)
@@ -115,6 +106,7 @@ public class VectorTest{
     func t2() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
+        //Case 1 - Int
         let vec1 = Vector<Int>(size: 5)
         vec1[0]=1
         vec1[1]=20
@@ -129,6 +121,7 @@ public class VectorTest{
         let result: [String] = ["1","2","3","4","5"]
         cases.append(testCase(vec1.vecStringArray, rhs: result))
         
+        //Case 2 - Double
         let vec2: Vector<Double> = Vector<Double>(size: 4)
         vec2[0] = 5.0
         vec2[1] = 3.45
@@ -141,20 +134,7 @@ public class VectorTest{
         let resultD: [String] = ["1.0", "2.45", "3.98", "4.25135324513"]
         cases.append(testCase(vec2.vecStringArray, rhs: resultD))
         
-        //Float
-        let vec3: Vector<Float> = Vector<Float>(size: 4)
-        vec3[0] = 145.0
-        vec3[1] = 2.45345
-        vec3[2] = 333.98
-        vec3[3] = 4.324513
-        vec3[0] = 1.0
-        vec3[1] = 2.45
-        vec3[2] = 3.98
-        vec3[3] = 4.25135324513
-        let resultF: [String] = ["1.0", "2.45", "3.98", "4.25135"]
-        cases.append(testCase(vec3.vecStringArray, rhs: resultF))
-        
-        //Fraction
+        //Case 3 - Fraction
         let vec4: Vector<Fraction> = Vector<Fraction>(size: 4)
         let f1: Fraction = Fraction(num: 1, den: 2)
         let f2: Fraction = Fraction(num: 3, den: 2)
@@ -171,7 +151,7 @@ public class VectorTest{
         let resultFrac: [String] = ["\(f1)", "\(f2)", "\(f3)", "\(f4)"]
         cases.append(testCase(vec4.vecStringArray, rhs: resultFrac))
         
-        //Complex
+        //Case 4 - Complex
         let vec5: Vector<Complex> = Vector<Complex>(size: 4)
         let c1: Complex = Complex(real: 1, imag: 2)
         let c2: Complex = Complex(real: 3, imag: 2)
@@ -195,6 +175,7 @@ public class VectorTest{
     func t3() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
+        //Case 1 - Int
         let vec1 = Vector<Int>(size: 5)
         vec1[0]=1
         vec1[1]=2
@@ -205,7 +186,7 @@ public class VectorTest{
         let result: [String] = ["1","2","3","4","5"]
         cases.append(testCase(vec2.vecStringArray, rhs: result))
         
-        //Double
+        //Case 2 - Double
         let vec3: Vector<Double> = Vector<Double>(size: 4)
         vec3[0] = 1.0
         vec3[1] = 2.45
@@ -215,17 +196,7 @@ public class VectorTest{
         let resultD: [String] = ["1.0", "2.45", "3.98", "4.25135324513"]
         cases.append(testCase(vec4.vecStringArray, rhs: resultD))
         
-        //Float
-        let vec5: Vector<Float> = Vector<Float>(size: 4)
-        vec5[0] = 1.0
-        vec5[1] = 2.45
-        vec5[2] = 3.98
-        vec5[3] = 4.25135324513
-        let vec6 = vec5.copy()
-        let resultF: [String] = ["1.0", "2.45", "3.98", "4.25135"]
-        cases.append(testCase(vec6.vecStringArray, rhs: resultF))
-        
-        //Fraction
+        //Case 3 - Fraction
         let vec7: Vector<Fraction> = Vector<Fraction>(size: 4)
         let f1: Fraction = Fraction(num: 1, den: 2)
         let f2: Fraction = Fraction(num: 3, den: 2)
@@ -239,7 +210,7 @@ public class VectorTest{
         let resultFrac: [String] = ["\(f1)", "\(f2)", "\(f3)", "\(f4)"]
         cases.append(testCase(vec8.vecStringArray, rhs: resultFrac))
         
-        //Complex
+        //Case 4 - Complex
         let vec9: Vector<Complex> = Vector<Complex>(size: 4)
         let c1: Complex = Complex(real: 1, imag: 2)
         let c2: Complex = Complex(real: 3, imag: 2)
@@ -285,21 +256,6 @@ public class VectorTest{
         vec6[2] = 2.0
         let dotD = vec5.dot(vec6)
         if (dotD == 6) {
-            cases.append(true)
-        }else {
-            cases.append(false)
-        }
-        
-        let vec7: Vector<Float> = Vector<Float>(size: 3)
-        vec7[0] = 5.0
-        vec7[1] = 2.0
-        vec7[2] = 1.0
-        let vec8: Vector<Float>  = Vector<Float>(size: 3)
-        vec8[0] = 0.0
-        vec8[1] = 2.0
-        vec8[2] = 2.0
-        let dotF = vec7.dot(vec8)
-        if (dotF == 6) {
             cases.append(true)
         }else {
             cases.append(false)

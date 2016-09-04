@@ -9,6 +9,7 @@
 import Foundation
 
 var tests: TestMatrixVector = TestMatrixVector()
+var type: [String] = ["(I)", "(D)", "(F)", "(C)", ""]
 
 //MATRIX TESTING
 
@@ -32,7 +33,7 @@ for t in 0...(mTResults.count-1){
             result = "FAILED"
             matFails += 1
         }
-        print("Case \(c+1): \(result)")
+        print("Case \(c+1) - \(type[c]): \(result)")
         matTests += 1
     }
     print()
@@ -65,7 +66,7 @@ for t in 0...(vTResults.count-1){
             result = "FAILED"
             vecFails += 1
         }
-        print("Case \(c+1): \(result)")
+        print("Case \(c+1) - \(type[c]): \(result)")
         vecTests += 1
     }
     print()
