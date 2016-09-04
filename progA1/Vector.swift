@@ -28,6 +28,10 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
         }
     }
     
+    public var vecStringArray: [String] {
+        return super.matStringArray
+    }
+    
     init(size: Int){
         vecSize = size
         super.init(rows: 1, columns: size)

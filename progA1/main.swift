@@ -12,13 +12,13 @@ var tests: TestMatrixVector = TestMatrixVector()
 
 //MATRIX TESTING
 
-print("***** Matrix Testing *****\n")
+print("***** Matrix Testing **ssssssssss***\n")
 
 var matTests: Int = 0
 var matPasses: Int = 0
 var matFails: Int = 0
 
-let mTNames: [String] = ["TEST 1 - Type values", "TEST 2 - Transpose of a Matrix", "TEST 3 - Copying a Matrix", "TEST 4 - Matrix * Matrix", "TEST 5 - Matrix + Matrix", "TEST 6 - Matrix - Matrix", "TEST 7 - Matrix + Scalar", "TEST 8 - Matrix - Scalar", "TEST 9 - Matrix * Scalar", "TEST 10 - Matrix / Scalar", "TEST 11 - Matrix vectorview", "TEST 12 - Matrix row access", "TEST 13 - Matrix column access"]
+let mTNames: [String] = ["[Type values]", "[Transpose]", "[Copy]", "[Matrix * Matrix]", "[Matrix + Matrix]", "[Matrix - Matrix]", "[Matrix + Scalar]", "[Matrix - Scalar]", "[Matrix * Scalar]", "[Matrix / Scalar]", "[Vectorview]", "[Row access]", "[Column access]"]
 let mTResults: [[Bool]] = tests.matrixTests
 
 for t in 0...(mTResults.count-1){
@@ -50,6 +50,7 @@ var vecPasses: Int = 0
 var vecFails: Int = 0
 
 var vTest: VectorTest = VectorTest()
+
 let vTNames: [String] = ["TEST 1 - Type values", "TEST 2 - Copying a Vector"]
 let vTResults: [[Bool]] = tests.vectorTests
 /*

@@ -36,6 +36,19 @@ public class MatrixTest{
         tests.append(t13())
     }
   
+    func testCase(lhs: [String], rhs: [String]) -> Bool{
+        if(lhs.count == rhs.count){
+            for c in 0...(lhs.count-1){
+                if(lhs[c] != rhs[c]){
+                    return false
+                }
+            }
+        }else{
+            return false
+        }
+        return true
+    }
+    
     //Test 1: setting and printing Matrix with different type values
     func t1() -> [Bool]{
         var cases: [Bool] = [Bool]()
@@ -46,8 +59,8 @@ public class MatrixTest{
         mat1[0, 1] = 2
         mat1[1, 0] = 3
         mat1[1, 1] = 4
-        let result: [Int] = [1, 2, 3, 4]
-        cases.append(testCase(mat1, rhs: result))
+        let result: [String] = ["1", "2", "3", "4"]
+        cases.append(testCase(mat1.matStringArray, rhs: result))
         
         //Double
         let mat2: Matrix<Double> = Matrix<Double>(rows: 2, columns: 2)
@@ -55,8 +68,8 @@ public class MatrixTest{
         mat2[0, 1] = 2.45
         mat2[1, 0] = 3.98
         mat2[1, 1] = 4.25135324513
-        let resultD: [Double] = [1.0, 2.45, 3.98, 4.25135324513]
-        cases.append(testCase(mat2, rhs: resultD))
+        let resultD: [String] = ["1.0", "2.45", "3.98", "4.25135324513"]
+        cases.append(testCase(mat2.matStringArray, rhs: resultD))
         
         //Float
         let mat3: Matrix<Float> = Matrix<Float>(rows: 2, columns: 2)
@@ -64,8 +77,8 @@ public class MatrixTest{
         mat3[0, 1] = 2.45
         mat3[1, 0] = 3.98
         mat3[1, 1] = 4.25135324513
-        let resultF: [Float] = [1.0, 2.45, 3.98, 4.25135]
-        cases.append(testCase(mat3, rhs: resultF))
+        let resultF: [String] = ["1.0", "2.45", "3.98", "4.25135"]
+        cases.append(testCase(mat3.matStringArray, rhs: resultF))
         
         //Fraction
         let mat4: Matrix<Fraction> = Matrix<Fraction>(rows: 2, columns: 2)
@@ -77,12 +90,11 @@ public class MatrixTest{
         mat4[0, 1] = f2
         mat4[1, 0] = f3
         mat4[1, 1] = f4
-        let resultFrac: [Fraction] = [f1, f2, f3, f4]
-        cases.append(testCase(mat4, rhs: resultFrac))
+        let resultFrac: [String] = ["\(f1)", "\(f2)", "\(f3)", "\(f4)"]
+        cases.append(testCase(mat4.matStringArray, rhs: resultFrac))
         
         //Complex
         let mat5: Matrix<Complex> = Matrix<Complex>(rows: 2, columns: 2)
-        print("Complex:  ", terminator: "")
         let c1: Complex = Complex(real: 1, imag: 2)
         let c2: Complex = Complex(real: 3, imag: 2)
         let c3: Complex = Complex(real: 5, imag: 16)
@@ -91,8 +103,8 @@ public class MatrixTest{
         mat5[0, 1] = c2
         mat5[1, 0] = c3
         mat5[1, 1] = c4
-        let resultComp: [Complex] = [c1, c2, c3, c4]
-        cases.append(testCase(mat5, rhs: resultComp))
+        let resultComp: [String] = ["\(c1)", "\(c2)", "\(c3)", "\(c4)"]
+        cases.append(testCase(mat5.matStringArray, rhs: resultComp))
         
         return cases
     }
@@ -108,8 +120,8 @@ public class MatrixTest{
         mat1[1, 0] = 3
         mat1[1, 1] = 4
         let mat2: Matrix<Int> = mat1.transpose
-        let result: [Int] = [1, 3, 2, 4]
-        cases.append(testCase(mat2, rhs: result))
+        let result: [String] = ["1", "3", "2", "4"]
+        cases.append(testCase(mat2.matStringArray, rhs: result))
         
         return cases
     }
@@ -125,7 +137,7 @@ public class MatrixTest{
         mat1[1, 0] = 3
         mat1[1, 1] = 4
         let mat2: Matrix<Int> = mat1.copy()
-        cases.append(testCase(mat1, rhs: mat2))
+        cases.append(testCase(mat1.matStringArray, rhs: mat2.matStringArray))
         
         return cases
     }
@@ -150,8 +162,8 @@ public class MatrixTest{
         mat2[2, 0] = 5
         mat2[2, 1] = 6
         let mat3: Matrix<Int> = mat1*mat2
-        let result: [Int] = [21, 28, 31, 40]
-        cases.append(testCase(mat3, rhs: result))
+        let result: [String] = ["21", "28", "31", "40"]
+        cases.append(testCase(mat3.matStringArray, rhs: result))
         
         return cases
     }
@@ -172,8 +184,8 @@ public class MatrixTest{
         mat2[1, 0] = 7
         mat2[1, 1] = 6
         let mat3: Matrix<Int> = mat1+mat2
-        let result: [Int] = [9, 3, 10, 8]
-        cases.append(testCase(mat3, rhs: result))
+        let result: [String] = ["9", "3", "10", "8"]
+        cases.append(testCase(mat3.matStringArray, rhs: result))
         
         return cases
     }
@@ -194,8 +206,8 @@ public class MatrixTest{
         mat2[1, 0] = 3
         mat2[1, 1] = 2
         let mat3: Matrix<Int> = mat1-mat2
-        let result: [Int] = [1, -1, 4, 4]
-        cases.append(testCase(mat3, rhs: result))
+        let result: [String] = ["1", "-1", "4", "4"]
+        cases.append(testCase(mat3.matStringArray, rhs: result))
         
         return cases
     }
@@ -212,8 +224,8 @@ public class MatrixTest{
         mat1[1, 1] = 25
         let s: Int = 2
         let mat2: Matrix<Int> = mat1+s
-        let result: [Int] = [22, 12, 7, 27]
-        cases.append(testCase(mat2, rhs: result))
+        let result: [String] = ["22", "12", "7", "27"]
+        cases.append(testCase(mat2.matStringArray, rhs: result))
         
         return cases
     }
@@ -230,8 +242,8 @@ public class MatrixTest{
         mat1[1, 1] = 25
         let s: Int = 2
         let mat2: Matrix<Int> = mat1-s
-        let result: [Int] = [18, 8, 3, 23]
-        cases.append(testCase(mat2, rhs: result))
+        let result: [String] = ["18", "8", "3", "23"]
+        cases.append(testCase(mat2.matStringArray, rhs: result))
         
         return cases
     }
@@ -248,8 +260,8 @@ public class MatrixTest{
         mat1[1, 1] = 6
         let s: Int = 2
         let mat2: Matrix<Int> = mat1*s
-        let result: [Int] = [4, 20, 8, 12]
-        cases.append(testCase(mat2, rhs: result))
+        let result: [String] = ["4", "20", "8", "12"]
+        cases.append(testCase(mat2.matStringArray, rhs: result))
         
         return cases
     }
@@ -266,8 +278,8 @@ public class MatrixTest{
         mat1[1, 1] = 30
         let s: Int = 2
         let mat2: Matrix<Int> = mat1/s
-        let result: [Int] = [10, 5, 50, 15]
-        cases.append(testCase(mat2, rhs: result))
+        let result: [String] = ["10", "5", "50", "15"]
+        cases.append(testCase(mat2.matStringArray, rhs: result))
         
         return cases
     }
@@ -282,8 +294,8 @@ public class MatrixTest{
         mat1[0, 1] = 2
         mat1[0, 2] = 3
         let mat2: Matrix<Int> = mat1.vectorview
-        let result: [Int] = [1, 2, 3]
-        cases.append(testCase(mat2, rhs: result))
+        let result: [String] = ["1", "2", "3"]
+        cases.append(testCase(mat2.matStringArray, rhs: result))
         
         return cases
     }
@@ -304,8 +316,8 @@ public class MatrixTest{
         mat1[2, 1] = 8
         mat1[2, 2] = 9
         let row: Vector<Int> = mat1.row(2)
-        let result: [Int] = [7, 8, 9]
-        cases.append(testCase(row, rhs: result))
+        let result: [String] = ["7", "8", "9"]
+        cases.append(testCase(row.vecStringArray, rhs: result))
         
         return cases
     }
@@ -325,125 +337,10 @@ public class MatrixTest{
         mat1[2, 0] = 7
         mat1[2, 1] = 8
         mat1[2, 2] = 9
-        let row: Vector<Int> = mat1.column(2)
-        let result: [Int] = [3, 6, 9]
-        cases.append(testCase(row, rhs: result))
+        let col: Vector<Int> = mat1.column(2)
+        let result: [String] = ["3", "6", "9"]
+        cases.append(testCase(col.vecStringArray, rhs: result))
         
         return cases
-    }
-    
-    func testCase(lhs: Matrix<Int>, rhs: [Int]) -> Bool{
-        var i: Int = 0
-        if((lhs.rows*lhs.columns) == rhs.count){
-            for r in 0...(lhs.rows-1){
-                for c in 0...(lhs.columns-1){
-                    if(lhs[r,c] != rhs[i]){
-                        return false
-                    }
-                    i += 1
-                }
-            }
-        }else{
-            return false
-        }
-        return true
-    }
-    
-    func testCase(lhs: Matrix<Double>, rhs: [Double]) -> Bool{
-        var i: Int = 0
-        if((lhs.rows*lhs.columns) == rhs.count){
-            for r in 0...(lhs.rows-1){
-                for c in 0...(lhs.columns-1){
-                    if(lhs[r,c] != rhs[i]){
-                        return false
-                    }
-                    i += 1
-                }
-            }
-        }else{
-            return false
-        }
-        return true
-    }
-    
-    func testCase(lhs: Matrix<Float>, rhs: [Float]) -> Bool{
-        var i: Int = 0
-        if((lhs.rows*lhs.columns) == rhs.count){
-            for r in 0...(lhs.rows-1){
-                for c in 0...(lhs.columns-1){
-                    if(lhs[r,c] != rhs[i]){
-                        return false
-                    }
-                    i += 1
-                }
-            }
-        }else{
-            return false
-        }
-        return true
-    }
-    
-    func testCase(lhs: Matrix<Fraction>, rhs: [Fraction]) -> Bool{
-        var i: Int = 0
-        if((lhs.rows*lhs.columns) == rhs.count){
-            for r in 0...(lhs.rows-1){
-                for c in 0...(lhs.columns-1){
-                    if(lhs[r,c] !== rhs[i]){
-                        return false
-                    }
-                    i += 1
-                }
-            }
-        }else{
-            return false
-        }
-        return true
-    }
-    
-    func testCase(lhs: Matrix<Complex>, rhs: [Complex]) -> Bool{
-        var i: Int = 0
-        if((lhs.rows*lhs.columns) == rhs.count){
-            for r in 0...(lhs.rows-1){
-                for c in 0...(lhs.columns-1){
-                    if(lhs[r,c] !== rhs[i]){
-                        return false
-                    }
-                    i += 1
-                }
-            }
-        }else{
-            return false
-        }
-        return true
-    }
-    
-    func testCase(lhs: Matrix<Int>, rhs: Matrix<Int>) -> Bool{
-        if((lhs.rows*lhs.columns) == (rhs.rows*rhs.columns)){
-            for r in 0...(lhs.rows-1){
-                for c in 0...(lhs.columns-1){
-                    if(lhs[r,c] != rhs[r,c]){
-                        return false
-                    }
-                }
-            }
-        }else{
-            return false
-        }
-        return true
-    }
-    
-    func testCase(lhs: Vector<Int>, rhs: [Int]) -> Bool{
-        if(lhs.size == rhs.count){
-            var i: Int = 0
-            for c in 0...(lhs.size-1){
-                if(lhs[c] != rhs[i]){
-                    return false
-                }
-                i += 1
-            }
-        }else{
-            return false
-        }
-        return true
     }
 }

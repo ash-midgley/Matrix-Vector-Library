@@ -36,7 +36,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         }
         return s
     }
-    
+
     // Returns the number of rows in the matrix
     public var rows: Int {
         get{
@@ -76,6 +76,19 @@ public class Matrix<T: MatrixData>: MatrixToVector {
                 return self.column(0)
             }
         }
+    }
+    
+    public var matStringArray: [String] {
+        var result: [String] = [String]()
+        let rF: Int = rowCount-1
+        let cF: Int = columnCount-1
+        
+        for r in 0...rF{
+            for c in 0...cF{
+                result.append("\(self[r,c])")
+            }
+        }
+        return result
     }
     
     init(rows: Int, columns: Int){
