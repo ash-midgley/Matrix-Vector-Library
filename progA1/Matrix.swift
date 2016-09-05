@@ -66,11 +66,11 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     //convert matrix to vector
     public var vectorview: Vector<T>{
         get{
-            assert(self.rows == 1 || self.columns == 1, "Attempted convert of a non single-row or non single-column Matrix")
-            if(self.rows == 1){
-                return self.row(0)
+            assert(rows == 1 || columns == 1, "Attempted convert of a non single-row or non single-column Matrix")
+            if(rows == 1){
+                return row(0)
             }else{
-                return self.column(0)
+                return column(0)
             }
         }
     }
@@ -78,8 +78,8 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     //convert contents of matrix to string array
     public var matStringArray: [String] {
         var result: [String] = [String]()
-        for r in 0...(rowCount-1){
-            for c in 0...(columnCount-1){
+        for r in 0...(rows-1){
+            for c in 0...(columns-1){
                 result.append("\(self[r,c])")
             }
         }

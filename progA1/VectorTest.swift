@@ -23,20 +23,20 @@ public class VectorTest{
     
     //Stores output of test methods in results 2D Bool array
     func runTests(){
-        tests.append(t1())
-        tests.append(t2())
-        tests.append(t3())
-        tests.append(t4())
-        tests.append(t5())
-        tests.append(t6())
-        tests.append(t7())
-        tests.append(t8())
-        tests.append(t9())
-        tests.append(t10())
-        tests.append(t11())
-        tests.append(t12())
-        tests.append(t13())
-        tests.append(t14())
+        tests.append(typeTest())
+        tests.append(subscriptTest())
+        tests.append(copyTest())
+        tests.append(dotTest())
+        tests.append(vvMultTest())
+        tests.append(vvAddTest())
+        tests.append(vvSubTest())
+        tests.append(vsAddTest())
+        tests.append(vsSubTest())
+        tests.append(vsMultTest())
+        tests.append(vsDivTest())
+        tests.append(viewTest())
+        tests.append(rowTest())
+        tests.append(columnTest())
     }
     
     //Compare the output produced with the correct result
@@ -55,7 +55,7 @@ public class VectorTest{
     }
     
     //Test 1 - Type values
-    func t1() -> [Bool]{
+    func typeTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -107,7 +107,7 @@ public class VectorTest{
     }
     
     //Test 2 - Subscript
-    func t2() -> [Bool]{
+    func subscriptTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -176,7 +176,7 @@ public class VectorTest{
     }
     
     //Test 3 - Copy
-    func t3() -> [Bool]{
+    func copyTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -228,7 +228,7 @@ public class VectorTest{
     }
     
     //Test 4 - Dot product
-    func t4() -> [Bool]{
+    func dotTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -307,7 +307,7 @@ public class VectorTest{
     }
     
     //Test 5 - Vector * Vector
-    func t5() -> [Bool]{
+    func vvMultTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -382,7 +382,7 @@ public class VectorTest{
     }
     
     //Test 6 - Vector + Vector
-    func t6() -> [Bool]{
+    func vvAddTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -453,7 +453,7 @@ public class VectorTest{
     }
     
     //Test 7 - Vector - Vector
-    func t7() -> [Bool]{
+    func vvSubTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -524,7 +524,7 @@ public class VectorTest{
     }
     
     //Test 8 - Vector * Scalar
-    func t8() -> [Bool]{
+    func vsMultTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -575,7 +575,7 @@ public class VectorTest{
     }
     
     //Test 9 - Vector + Scalar
-    func t9() -> [Bool]{
+    func vsAddTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -626,7 +626,7 @@ public class VectorTest{
     }
     
     //Test 10 - Vector - Scalar
-    func t10() -> [Bool]{
+    func vsSubTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -677,7 +677,7 @@ public class VectorTest{
     }
     
     //Test 11 - Vector / Scalar
-    func t11() -> [Bool]{
+    func vsDivTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -728,7 +728,7 @@ public class VectorTest{
     }
     
     //Test 12 - Matrixview
-    func t12() -> [Bool]{
+    func viewTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -777,7 +777,7 @@ public class VectorTest{
     }
     
     //Test 13 - Row access
-    func t13() -> [Bool]{
+    func rowTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -862,7 +862,7 @@ public class VectorTest{
     }
     
     //Test 14 - Column access
-    func t14() -> [Bool]{
+    func columnTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int

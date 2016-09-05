@@ -23,20 +23,20 @@ public class MatrixTest{
     
     //Stores output of test methods in results 2D Bool array
     func runTests(){
-        tests.append(t1())
-        tests.append(t2())
-        tests.append(t3())
-        tests.append(t4())
-        tests.append(t5())
-        tests.append(t6())
-        tests.append(t7())
-        tests.append(t8())
-        tests.append(t9())
-        tests.append(t10())
-        tests.append(t11())
-        tests.append(t12())
-        tests.append(t13())
-        tests.append(t14())
+        tests.append(typeValuesTest())
+        tests.append(subscriptTest())
+        tests.append(transposeTest())
+        tests.append(copyTest())
+        tests.append(mmMultTest())
+        tests.append(mmAddTest())
+        tests.append(mmSubTest())
+        tests.append(msAddTest())
+        tests.append(msSubTest())
+        tests.append(msMultTest())
+        tests.append(msDivTest())
+        tests.append(viewTest())
+        tests.append(rowsTest())
+        tests.append(columnsTest())
     }
   
     //Compare the output produced with the correct result
@@ -55,7 +55,7 @@ public class MatrixTest{
     }
     
     //Test 1: setting and printing Matrix with different type values
-    func t1() -> [Bool]{
+    func typeValuesTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -105,8 +105,8 @@ public class MatrixTest{
         return cases
     }
     
-    //Test 2 - Subscript
-    func t2() -> [Bool]{
+    //Test 2 - Sets and access subscript
+    func subscriptTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -169,7 +169,7 @@ public class MatrixTest{
     }
     
     //Test 3: Transpose of a Matrix
-    func t3() -> [Bool]{
+    func transposeTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -226,7 +226,7 @@ public class MatrixTest{
     }
     
     //Test 4: Copying a Matrix
-    func t4() -> [Bool] {
+    func copyTest() -> [Bool] {
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -279,7 +279,7 @@ public class MatrixTest{
     }
     
     //Test 5: Matrix - Matrix multiplication
-    func t5() -> [Bool] {
+    func mmMultTest() -> [Bool] {
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -362,7 +362,7 @@ public class MatrixTest{
     }
     
     //Test 6: Matrix - Matrix addition
-    func t6() -> [Bool]{
+    func mmAddTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -445,7 +445,7 @@ public class MatrixTest{
     }
     
     //Test 7: Matrix - Matrix subtraction
-    func t7() -> [Bool]{
+    func mmSubTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -528,7 +528,7 @@ public class MatrixTest{
     }
     
     //Test 8 - Matrix - Scalar Addition
-    func t8() -> [Bool]{
+    func msAddTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -581,7 +581,7 @@ public class MatrixTest{
     }
     
     //Test 9 - Matrix - Scalar Subtraction
-    func t9() -> [Bool]{
+    func msSubTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -632,7 +632,7 @@ public class MatrixTest{
     }
     
     //Test 10 - Matrix - Scalar Multiplication
-    func t10() -> [Bool]{
+    func msMultTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -683,7 +683,7 @@ public class MatrixTest{
     }
     
     //Test 11 - Matrix - Scalar Division
-    func t11() -> [Bool]{
+    func msDivTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -734,7 +734,7 @@ public class MatrixTest{
     }
     
     //Test 12 - Matrix to Vector view
-    func t12() -> [Bool]{
+    func viewTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -783,7 +783,7 @@ public class MatrixTest{
     }
     
     //Test 13 - Access Matrix rows
-    func t13() -> [Bool]{
+    func rowsTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
@@ -868,7 +868,7 @@ public class MatrixTest{
     }
     
     //Test 14 - Access Matrix columns
-    func t14() -> [Bool]{
+    func columnsTest() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
         //Case 1 - Int
