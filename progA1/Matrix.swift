@@ -14,6 +14,8 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     let rowCount: Int
     let columnCount: Int
     
+    
+    //description of matrix
     public var description: String{
         var s: String = ""
         for r in 0...(rows-1){
@@ -61,6 +63,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         }
     }
     
+    //
     public var vectorview: Vector<T>{
         get{
             assert(self.rows == 1 || self.columns == 1, "Attempted convert of a non single-row or non single-column Matrix")

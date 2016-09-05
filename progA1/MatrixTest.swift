@@ -234,6 +234,43 @@ public class MatrixTest{
         let mat2: Matrix<Int> = mat1.copy()
         cases.append(testCase(mat1.matStringArray, rhs: mat2.matStringArray))
         
+        //Case 2 - Double
+        let mat3: Matrix<Double> = Matrix<Double>(rows: 2, columns: 2)
+        mat3[0, 0] = 1.2345
+        mat3[0, 1] = 4.2341
+        mat3[1, 0] = 156.56
+        mat3[1, 1] = 23.8976
+        let mat4: Matrix<Double> = mat3.copy()
+        cases.append(testCase(mat3.matStringArray, rhs: mat4.matStringArray))
+        
+        //Case 4 - Fraction
+        let mat7: Matrix<Fraction> = Matrix<Fraction>(rows: 1, columns: 3)
+        let f1: Fraction = Fraction(num: 34, den: 2)
+        let f2: Fraction = Fraction(num: 1, den: 2)
+        let f3: Fraction = Fraction(num: 53, den: 69)
+        mat7[0, 0] = f1
+        mat7[0, 1] = f2
+        mat7[0, 2] = f3
+        let mat8: Matrix<Fraction> = mat7.copy()
+        cases.append(testCase(mat7.matStringArray, rhs: mat8.matStringArray))
+        
+        //Case 5 - Complex
+        let mat9: Matrix<Complex> = Matrix<Complex>(rows: 3, columns: 2)
+        let c1: Complex = Complex(real: 34, imag: 2)
+        let c2: Complex = Complex(real: 1, imag: 2)
+        let c3: Complex = Complex(real: 53, imag: 69)
+        let c4: Complex = Complex(real: 85, imag: 100)
+        let c5: Complex = Complex(real: 45, imag: 20)
+        let c6: Complex = Complex(real: 16, imag: 8)
+        mat9[0, 0] = c1
+        mat9[0, 1] = c2
+        mat9[1, 0] = c3
+        mat9[1, 1] = c4
+        mat9[2, 0] = c5
+        mat9[2, 1] = c6
+        let mat10: Matrix<Complex> = mat9.copy()
+        cases.append(testCase(mat9.matStringArray, rhs: mat10.matStringArray))
+        
         return cases
     }
     
@@ -671,7 +708,7 @@ public class MatrixTest{
         mat3[1, 1] = 25.23515
         let sD: Double = 2.567
         let mat4: Matrix<Double> = mat3/sD
-        let resultD: [String] = ["7.96895597974", "4.02151733541", "2.21014959096", "9.83059992209"]
+        let resultD: [String] = ["7.96895597974289", "4.02151733541099", "2.21014959096221", "9.83059992208804"]
         cases.append(testCase(mat4.matStringArray, rhs: resultD))
         
         //Case 3 - Fraction
@@ -783,9 +820,52 @@ public class MatrixTest{
         cases.append(testCase(rowD.vecStringArray, rhs: resultD))
         
         //Case 3 - Fraction
-        
+        let mat3: Matrix<Fraction> = Matrix<Fraction>(rows: 3, columns: 3)
+        let f1: Fraction = Fraction(num: -2, den: 5)
+        let f2: Fraction = Fraction(num: 2, den: 3)
+        let f3: Fraction = Fraction(num: 7, den: 8)
+        let f4: Fraction = Fraction(num: -3, den: 2)
+        let f5: Fraction = Fraction(num: 2, den: 1)
+        let f6: Fraction = Fraction(num: 9, den: 2)
+        let f7: Fraction = Fraction(num: -2, den: 11)
+        let f8: Fraction = Fraction(num: 6, den: 13)
+        let f9: Fraction = Fraction(num: 1, den: -8)
+        mat3[0, 0] = f1
+        mat3[0, 1] = f2
+        mat3[0, 2] = f3
+        mat3[1, 0] = f4
+        mat3[1, 1] = f5
+        mat3[1, 2] = f6
+        mat3[2, 0] = f7
+        mat3[2, 1] = f8
+        mat3[2, 2] = f9
+        let rowF: Vector<Fraction> = mat3.row(1)
+        let resultF: [String] = ["\(f4)", "\(f5)", "\(f6)"]
+        cases.append(testCase(rowF.vecStringArray, rhs: resultF))
         
         //Case 4 - Complex
+        let mat4: Matrix<Complex> = Matrix<Complex>(rows: 3, columns: 3)
+        let c1: Complex = Complex(real: 1, imag: 7)
+        let c2: Complex = Complex(real: 12, imag: 1)
+        let c3: Complex = Complex(real: 8, imag: 3)
+        let c4: Complex = Complex(real: 10, imag: -7)
+        let c5: Complex = Complex(real: 2, imag: 7)
+        let c6: Complex = Complex(real: -3, imag: 13)
+        let c7: Complex = Complex(real: 0, imag: 27)
+        let c8: Complex = Complex(real: 2, imag: 45)
+        let c9: Complex = Complex(real: 0, imag: 1)
+        mat4[0, 0] = c1
+        mat4[0, 1] = c2
+        mat4[0, 2] = c3
+        mat4[1, 0] = c4
+        mat4[1, 1] = c5
+        mat4[1, 2] = c6
+        mat4[2, 0] = c7
+        mat4[2, 1] = c8
+        mat4[2, 2] = c9
+        let rowC: Vector<Complex> = mat4.row(0)
+        let resultC: [String] = ["\(c1)", "\(c2)", "\(c3)"]
+        cases.append(testCase(rowC.vecStringArray, rhs: resultC))
         
         return cases
     }
@@ -808,6 +888,69 @@ public class MatrixTest{
         let col: Vector<Int> = mat1.column(2)
         let result: [String] = ["3", "6", "9"]
         cases.append(testCase(col.vecStringArray, rhs: result))
+        
+        //Case 2 - Double
+        let mat2: Matrix<Double> = Matrix<Double>(rows: 3, columns: 3)
+        mat2[0, 0] = 1.234
+        mat2[0, 1] = 2.345
+        mat2[0, 2] = 3.456
+        mat2[1, 0] = 4.567
+        mat2[1, 1] = 5.13223523115
+        mat2[1, 2] = 6.462346
+        mat2[2, 0] = 7.23462346
+        mat2[2, 1] = 8.2457245
+        mat2[2, 2] = 9.245623
+        let rowD: Vector<Double> = mat2.column(0)
+        let resultD: [String] = ["1.234", "4.567", "7.23462346"]
+        cases.append(testCase(rowD.vecStringArray, rhs: resultD))
+        
+        //Case 3 - Fraction
+        let mat3: Matrix<Fraction> = Matrix<Fraction>(rows: 3, columns: 3)
+        let f1: Fraction = Fraction(num: -2, den: 5)
+        let f2: Fraction = Fraction(num: 2, den: 3)
+        let f3: Fraction = Fraction(num: 7, den: 8)
+        let f4: Fraction = Fraction(num: -3, den: 2)
+        let f5: Fraction = Fraction(num: 2, den: 1)
+        let f6: Fraction = Fraction(num: 9, den: 2)
+        let f7: Fraction = Fraction(num: -2, den: 11)
+        let f8: Fraction = Fraction(num: 6, den: 13)
+        let f9: Fraction = Fraction(num: 1, den: -8)
+        mat3[0, 0] = f1
+        mat3[0, 1] = f2
+        mat3[0, 2] = f3
+        mat3[1, 0] = f4
+        mat3[1, 1] = f5
+        mat3[1, 2] = f6
+        mat3[2, 0] = f7
+        mat3[2, 1] = f8
+        mat3[2, 2] = f9
+        let rowF: Vector<Fraction> = mat3.column(1)
+        let resultF: [String] = ["\(f2)", "\(f5)", "\(f8)"]
+        cases.append(testCase(rowF.vecStringArray, rhs: resultF))
+        
+        //Case 4 - Complex
+        let mat4: Matrix<Complex> = Matrix<Complex>(rows: 3, columns: 3)
+        let c1: Complex = Complex(real: 1, imag: 7)
+        let c2: Complex = Complex(real: 12, imag: 1)
+        let c3: Complex = Complex(real: 8, imag: 3)
+        let c4: Complex = Complex(real: 10, imag: -7)
+        let c5: Complex = Complex(real: 2, imag: 7)
+        let c6: Complex = Complex(real: -3, imag: 13)
+        let c7: Complex = Complex(real: 0, imag: 27)
+        let c8: Complex = Complex(real: 2, imag: 45)
+        let c9: Complex = Complex(real: 0, imag: 1)
+        mat4[0, 0] = c1
+        mat4[0, 1] = c2
+        mat4[0, 2] = c3
+        mat4[1, 0] = c4
+        mat4[1, 1] = c5
+        mat4[1, 2] = c6
+        mat4[2, 0] = c7
+        mat4[2, 1] = c8
+        mat4[2, 2] = c9
+        let rowC: Vector<Complex> = mat4.column(2)
+        let resultC: [String] = ["\(c3)", "\(c6)", "\(c9)"]
+        cases.append(testCase(rowC.vecStringArray, rhs: resultC))
         
         return cases
     }
