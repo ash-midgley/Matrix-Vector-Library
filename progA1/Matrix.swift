@@ -63,7 +63,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         }
     }
     
-    //
+    //convert matrix to vector
     public var vectorview: Vector<T>{
         get{
             assert(self.rows == 1 || self.columns == 1, "Attempted convert of a non single-row or non single-column Matrix")
@@ -75,6 +75,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         }
     }
     
+    //convert contents of matrix to string array
     public var matStringArray: [String] {
         var result: [String] = [String]()
         for r in 0...(rowCount-1){
@@ -85,6 +86,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return result
     }
     
+    //default initialiser
     init(rows: Int, columns: Int){
         assert(rows > 0 && columns > 0, "ERROR: row and column values must be greater than 0")
         mat = Array(count: rows, repeatedValue: Array(count: columns, repeatedValue: T.init()))
@@ -112,6 +114,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return copy
     }
     
+    //select row vector from matrix
     public func row(index: Int) -> Vector<T>{
         let vec: Vector<T> = Vector<T>(size: self.columns)
         for i in 0...(vec.size-1){
@@ -120,6 +123,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return vec
     }
     
+    //select column vector from matrix
     public func column(index: Int) -> Vector<T>{
         let vec: Vector<T> = Vector<T>(size: self.rows)
         var i: Int = 0
@@ -135,6 +139,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
     }
     
     // Matrix and Matrix operations
+    //multiplication
     func multiply(rhs: Matrix<T>) -> Matrix<T>{
         assert(self.rows == rhs.columns, "Matrix A must have the same number of rows as Matrix B's columns")
         let result: Matrix = Matrix(rows: self.rows, columns: rhs.columns)
@@ -152,6 +157,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return result
     }
     
+    //addition
     func add(rhs: Matrix<T>) -> Matrix<T>{
         assert(self.rows == rhs.rows && self.columns == rhs.columns, "Matrix A must be of same size as Matrix B")
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
@@ -165,6 +171,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return result
     }
     
+    //subtraction
     func subtract(rhs: Matrix<T>) -> Matrix<T>{
         assert(self.rows == rhs.rows && self.columns == rhs.columns, "Matrix A must be of same size as Matrix B")
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
@@ -191,6 +198,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return result
     }
     
+    //addition
     func add(rhs: T) -> Matrix<T>{
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
         
@@ -203,6 +211,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return result
     }
     
+    //subtraction
     func subtract(rhs: T) -> Matrix<T>{
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
         
@@ -215,6 +224,7 @@ public class Matrix<T: MatrixData>: MatrixToVector {
         return result
     }
     
+    //division
     func divide(rhs: T) -> Matrix<T>{
         let result: Matrix = Matrix(rows: self.rows, columns: self.columns)
         
