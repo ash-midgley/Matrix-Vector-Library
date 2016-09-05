@@ -35,6 +35,8 @@ final class Complex : CustomStringConvertible {
         var result = "\(self.real)"
         if(self.imag > 0){
             result += "+\(self.imag)i"
+        }else if(self.imag == 0){
+            result += "+\(self.imag)i"
         }else{
             result += "\(self.imag)i"
         }

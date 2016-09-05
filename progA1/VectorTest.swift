@@ -10,6 +10,7 @@ import Foundation
 
 public class VectorTest{
     
+    //Stores results from Vector testing: Rows = tests, columns = cases for test
     var tests: [[Bool]] = [[Bool]]()
     
     var results: [[Bool]]{
@@ -20,6 +21,7 @@ public class VectorTest{
         runTests()
     }
     
+    //Stores output of test methods in results 2D Bool array
     func runTests(){
         tests.append(t1())
         tests.append(t2())
@@ -37,6 +39,8 @@ public class VectorTest{
         tests.append(t14())
     }
     
+    //Compare the output produced with the correct result
+    //Returns true if output is correct or false otherwise
     func testCase(lhs: [String], rhs: [String]) -> Bool{
         if(lhs.count == rhs.count){
             for c in 0...(lhs.count-1){
@@ -54,7 +58,7 @@ public class VectorTest{
     func t1() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Int
+        //Case 1 - Int
         let vec1: Vector<Int> = Vector<Int>(size: 4)
         vec1[0] = 1
         vec1[1] = 2
@@ -64,7 +68,7 @@ public class VectorTest{
         cases.append(testCase(vec1.vecStringArray, rhs: result))
         
         
-        //Double
+        //Case 2 - Double
         let vec2: Vector<Double> = Vector<Double>(size: 4)
         vec2[0] = 1.0
         vec2[1] = 2.45
@@ -73,7 +77,7 @@ public class VectorTest{
         let resultD: [String] = ["1.0", "2.45", "3.98", "4.25135324513"]
         cases.append(testCase(vec2.vecStringArray, rhs: resultD))
         
-        //Fraction
+        //Case 3 - Fraction
         let vec4: Vector<Fraction> = Vector<Fraction>(size: 4)
         let f1: Fraction = Fraction(num: 1, den: 2)
         let f2: Fraction = Fraction(num: 3, den: 2)
@@ -86,7 +90,7 @@ public class VectorTest{
         let resultFrac: [String] = ["\(f1)", "\(f2)", "\(f3)", "\(f4)"]
         cases.append(testCase(vec4.vecStringArray, rhs: resultFrac))
         
-        //Complex
+        //Case4 - Complex
         let vec5: Vector<Complex> = Vector<Complex>(size: 4)
         let c1: Complex = Complex(real: 1, imag: 2)
         let c2: Complex = Complex(real: 3, imag: 2)
@@ -227,6 +231,7 @@ public class VectorTest{
     func t4() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
+        //Case 1 - Int
         let vec3 = Vector<Int>(size: 3)
         vec3[0] = 5
         vec3[1] = 2
@@ -512,7 +517,7 @@ public class VectorTest{
         vec33[1] = c5
         vec33[2] = c6
         let vec44: Vector<Complex> = vec22-vec33
-        let resultC: [String] = ["5.00.0i", "10.0+3.0i", "2.0-7.0i"]
+        let resultC: [String] = ["5.0+0.0i", "10.0+3.0i", "2.0-7.0i"]
         cases.append(testCase(vec44.vecStringArray, rhs: resultC))
         
         return cases

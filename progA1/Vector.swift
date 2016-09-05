@@ -10,12 +10,14 @@ import Foundation
 
 public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
     
+    // Returns the size of the vector
     public var size: Int {
         get{
             return (super.rows*super.columns)
         }
     }
     
+    // Convert Vector to Matrix
     public var matrixview: Matrix<T>{
         get{
             let mat: Matrix<T> = Matrix<T>(rows: 1, columns: self.size)
@@ -26,10 +28,12 @@ public class Vector<T: MatrixData>: Matrix<T>, VectorToMatrix {
         }
     }
     
+    //convert contents of vector to string array
     public var vecStringArray: [String] {
         return super.matStringArray
     }
     
+    //default initialiser
     init(size: Int){
         super.init(rows: 1, columns: size)
     }

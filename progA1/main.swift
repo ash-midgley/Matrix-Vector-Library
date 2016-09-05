@@ -9,7 +9,7 @@
 import Foundation
 
 var tests: TestMatrixVector = TestMatrixVector()
-var type: [String] = ["(I)", "(D)", "(F)", "(C)", ""]
+var type: [String] = ["(I)", "(D)", "(F)", "(C)"]
 
 //MATRIX TESTING
 
@@ -40,7 +40,7 @@ for t in 0...(mTResults.count-1){
 }
 
 print("Tests ran on Matrix class: \(Int(matTests))")
-print("Passes: \(Int(matPasses)), Fails: \(Int(matFails)).\n")
+print("Passes: \(Int(matPasses)) - Fails: \(Int(matFails))\n")
 
 //VECTOR TESTING
 
@@ -73,7 +73,7 @@ for t in 0...(vTResults.count-1){
 }
 
 print("Tests ran on Vector class: \(Int(vecTests))")
-print("Passes: \(Int(vecPasses)), Fails: \(Int(vecFails)).\n")
+print("Passes: \(Int(vecPasses)) - Fails: \(Int(vecFails))\n")
 
 //Tests COMPLETE
 

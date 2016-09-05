@@ -10,6 +10,7 @@ import Foundation
 
 public class MatrixTest{
     
+    //Stores results from Vector testing: Rows = tests, columns = cases for test
     var tests: [[Bool]] = [[Bool]]()
     
     var results: [[Bool]]{
@@ -20,6 +21,7 @@ public class MatrixTest{
         runTests()
     }
     
+    //Stores output of test methods in results 2D Bool array
     func runTests(){
         tests.append(t1())
         tests.append(t2())
@@ -37,6 +39,8 @@ public class MatrixTest{
         tests.append(t14())
     }
   
+    //Compare the output produced with the correct result
+    //Returns true if output is correct or false otherwise
     func testCase(lhs: [String], rhs: [String]) -> Bool{
         if(lhs.count == rhs.count){
             for c in 0...(lhs.count-1){
@@ -54,7 +58,7 @@ public class MatrixTest{
     func t1() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Int
+        //Case 1 - Int
         let mat1: Matrix<Int> = Matrix<Int>(rows: 2, columns: 2)
         mat1[0, 0] = 1
         mat1[0, 1] = 2
@@ -63,7 +67,7 @@ public class MatrixTest{
         let result: [String] = ["1", "2", "3", "4"]
         cases.append(testCase(mat1.matStringArray, rhs: result))
         
-        //Double
+        //Case 2 - Double
         let mat2: Matrix<Double> = Matrix<Double>(rows: 2, columns: 2)
         mat2[0, 0] = 1.0
         mat2[0, 1] = 2.45
@@ -72,7 +76,7 @@ public class MatrixTest{
         let resultD: [String] = ["1.0", "2.45", "3.98", "4.25135324513"]
         cases.append(testCase(mat2.matStringArray, rhs: resultD))
         
-        //Fraction
+        //Case 3 - Fraction
         let mat4: Matrix<Fraction> = Matrix<Fraction>(rows: 2, columns: 2)
         let f1: Fraction = Fraction(num: 1, den: 2)
         let f2: Fraction = Fraction(num: 3, den: 2)
@@ -85,7 +89,7 @@ public class MatrixTest{
         let resultFrac: [String] = ["\(f1)", "\(f2)", "\(f3)", "\(f4)"]
         cases.append(testCase(mat4.matStringArray, rhs: resultFrac))
         
-        //Complex
+        //Case 4 - Complex
         let mat5: Matrix<Complex> = Matrix<Complex>(rows: 2, columns: 2)
         let c1: Complex = Complex(real: 1, imag: 2)
         let c2: Complex = Complex(real: 3, imag: 2)
@@ -127,7 +131,7 @@ public class MatrixTest{
         let resultD: [String] = ["1.0", "2.45", "3.98", "4.25135324513"]
         cases.append(testCase(mat2.matStringArray, rhs: resultD))
         
-        //Fraction
+        //Case 3 - Fraction
         let mat4: Matrix<Fraction> = Matrix<Fraction>(rows: 2, columns: 2)
         let f1: Fraction = Fraction(num: 1, den: 2)
         let f2: Fraction = Fraction(num: 3, den: 2)
@@ -144,7 +148,7 @@ public class MatrixTest{
         let resultFrac: [String] = ["\(f1)", "\(f2)", "\(f3)", "\(f4)"]
         cases.append(testCase(mat4.matStringArray, rhs: resultFrac))
         
-        //Complex
+        //Case 4 - Complex
         let mat5: Matrix<Complex> = Matrix<Complex>(rows: 2, columns: 2)
         let c1: Complex = Complex(real: 1, imag: 2)
         let c2: Complex = Complex(real: 3, imag: 2)
@@ -164,7 +168,7 @@ public class MatrixTest{
         return cases
     }
     
-    //Test 3: Transpose of a matrix
+    //Test 3: Transpose of a Matrix
     func t3() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
@@ -188,7 +192,7 @@ public class MatrixTest{
         let resultD: [String] = ["1.2345", "156.56", "4.2341", "23.8976"]
         cases.append(testCase(mat4.matStringArray, rhs: resultD))
         
-        //Case 4 - Fraction
+        //Case 3 - Fraction
         let mat7: Matrix<Fraction> = Matrix<Fraction>(rows: 1, columns: 3)
         let f1: Fraction = Fraction(num: 34, den: 2)
         let f2: Fraction = Fraction(num: 1, den: 2)
@@ -200,7 +204,7 @@ public class MatrixTest{
         let resultFrac: [String] = ["\(f1)", "\(f2)", "\(f3)"]
         cases.append(testCase(mat8.matStringArray, rhs: resultFrac))
         
-        //Case 5 - Complex
+        //Case 4 - Complex
         let mat9: Matrix<Complex> = Matrix<Complex>(rows: 3, columns: 2)
         let c1: Complex = Complex(real: 34, imag: 2)
         let c2: Complex = Complex(real: 1, imag: 2)
@@ -225,7 +229,7 @@ public class MatrixTest{
     func t4() -> [Bool] {
         var cases: [Bool] = [Bool]()
         
-        //Case 1
+        //Case 1 - Int
         let mat1: Matrix<Int> = Matrix<Int>(rows: 2, columns: 2)
         mat1[0, 0] = 1
         mat1[0, 1] = 2
@@ -243,7 +247,7 @@ public class MatrixTest{
         let mat4: Matrix<Double> = mat3.copy()
         cases.append(testCase(mat3.matStringArray, rhs: mat4.matStringArray))
         
-        //Case 4 - Fraction
+        //Case 3 - Fraction
         let mat7: Matrix<Fraction> = Matrix<Fraction>(rows: 1, columns: 3)
         let f1: Fraction = Fraction(num: 34, den: 2)
         let f2: Fraction = Fraction(num: 1, den: 2)
@@ -254,7 +258,7 @@ public class MatrixTest{
         let mat8: Matrix<Fraction> = mat7.copy()
         cases.append(testCase(mat7.matStringArray, rhs: mat8.matStringArray))
         
-        //Case 5 - Complex
+        //Case 4 - Complex
         let mat9: Matrix<Complex> = Matrix<Complex>(rows: 3, columns: 2)
         let c1: Complex = Complex(real: 34, imag: 2)
         let c2: Complex = Complex(real: 1, imag: 2)
@@ -324,7 +328,6 @@ public class MatrixTest{
         let f4: Fraction = Fraction(num: 35, den: 5)
         let f5: Fraction = Fraction(num: 1, den: 2)
         let f6: Fraction = Fraction(num: 7, den: 9)
-        
         mat7[0, 0] = f1
         mat7[0, 1] = f2
         mat7[0, 2] = f3
@@ -344,7 +347,6 @@ public class MatrixTest{
         let c4: Complex = Complex(real: 35, imag: 5)
         let c5: Complex = Complex(real: 1, imag: 2)
         let c6: Complex = Complex(real: 7, imag: 9)
-        
         mat10[0, 0] = c1
         mat10[0, 1] = c2
         mat10[0, 2] = c3
@@ -363,7 +365,7 @@ public class MatrixTest{
     func t6() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Case1
+        //Case 1 - Int
         let mat1 = Matrix<Int>(rows: 2, columns: 2)
         mat1[0, 0] = 4
         mat1[0, 1] = 2
@@ -426,7 +428,6 @@ public class MatrixTest{
         let c6: Complex = Complex(real: 7, imag: 9)
         let c7: Complex = Complex(real: 134, imag: 6)
         let c8: Complex = Complex(real: 8, imag: 9)
-        
         mat10[0, 0] = c1
         mat10[0, 1] = c2
         mat10[1, 0] = c3
@@ -447,7 +448,7 @@ public class MatrixTest{
     func t7() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Case 1
+        //Case 1 - Int
         let mat1 = Matrix<Int>(rows: 2, columns: 2)
         mat1[0, 0] = 5
         mat1[0, 1] = 1
@@ -510,7 +511,6 @@ public class MatrixTest{
         let c6: Complex = Complex(real: 7, imag: 9)
         let c7: Complex = Complex(real: 134, imag: 6)
         let c8: Complex = Complex(real: 8, imag: 9)
-        
         mat10[0, 0] = c1
         mat10[0, 1] = c2
         mat10[1, 0] = c3
@@ -531,7 +531,7 @@ public class MatrixTest{
     func t8() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Case 1
+        //Case 1 - Int
         let mat1: Matrix<Int> = Matrix<Int>(rows:2, columns: 2)
         mat1[0, 0] = 20
         mat1[0, 1] = 10
@@ -542,7 +542,7 @@ public class MatrixTest{
         let result: [String] = ["22", "12", "7", "27"]
         cases.append(testCase(mat2.matStringArray, rhs: result))
         
-        //Case 2
+        //Case 2 - Double
         let mat3: Matrix<Double> = Matrix<Double>(rows:2, columns: 2)
         mat3[0, 0] = 20.45631
         mat3[0, 1] = 10.323235
@@ -595,7 +595,7 @@ public class MatrixTest{
         let result: [String] = ["18", "8", "3", "23"]
         cases.append(testCase(mat2.matStringArray, rhs: result))
         
-        //Case 2
+        //Case 2 - Double
         let mat3: Matrix<Double> = Matrix<Double>(rows:2, columns: 2)
         mat3[0, 0] = 20.45631
         mat3[0, 1] = 10.323235
@@ -614,7 +614,6 @@ public class MatrixTest{
         mat5[0, 0] = f1
         mat5[0, 1] = f2
         let mat6: Matrix<Fraction> = mat5-f3
-        
         let resultFrac: [String] = ["-1/8", "1 1/4"]
         cases.append(testCase(mat6.matStringArray, rhs: resultFrac))
         
@@ -626,7 +625,6 @@ public class MatrixTest{
         mat7[0, 0] = c1
         mat7[0, 1] = c2
         let mat8: Matrix<Complex> = mat7-c3
-        
         let resultComp: [String] = ["35.0+94.0i", "55.0+30.0i"]
         cases.append(testCase(mat8.matStringArray, rhs: resultComp))
         
@@ -637,7 +635,7 @@ public class MatrixTest{
     func t10() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Case 1
+        //Case 1 - Int
         let mat1: Matrix<Int> = Matrix<Int>(rows:2, columns: 2)
         mat1[0, 0] = 2
         mat1[0, 1] = 10
@@ -648,7 +646,7 @@ public class MatrixTest{
         let result: [String] = ["4", "20", "8", "12"]
         cases.append(testCase(mat2.matStringArray, rhs: result))
         
-        //Case 2
+        //Case 2 - Double
         let mat3: Matrix<Double> = Matrix<Double>(rows:2, columns: 2)
         mat3[0, 0] = 20.45631
         mat3[0, 1] = 10.323235
@@ -667,7 +665,6 @@ public class MatrixTest{
         mat5[0, 0] = f1
         mat5[0, 1] = f2
         let mat6: Matrix<Fraction> = mat5*f3
-        
         let resultFrac: [String] = ["3/16", "7/8"]
         cases.append(testCase(mat6.matStringArray, rhs: resultFrac))
         
@@ -689,7 +686,7 @@ public class MatrixTest{
     func t11() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Case 1
+        //Case 1 - Int
         let mat1: Matrix<Int> = Matrix<Int>(rows:2, columns: 2)
         mat1[0, 0] = 20
         mat1[0, 1] = 10
@@ -700,7 +697,7 @@ public class MatrixTest{
         let result: [String] = ["10", "5", "50", "15"]
         cases.append(testCase(mat2.matStringArray, rhs: result))
         
-        //Case 2
+        //Case 2 - Double
         let mat3: Matrix<Double> = Matrix<Double>(rows:2, columns: 2)
         mat3[0, 0] = 20.45631
         mat3[0, 1] = 10.323235
@@ -874,7 +871,7 @@ public class MatrixTest{
     func t14() -> [Bool]{
         var cases: [Bool] = [Bool]()
         
-        //Case 1
+        //Case 1 - Int
         let mat1: Matrix<Int> = Matrix<Int>(rows: 3, columns: 3)
         mat1[0, 0] = 1
         mat1[0, 1] = 2
